@@ -42,7 +42,9 @@ urllib3.exceptions.ProtocolError: ('Connection broken: OSError("(54, \'ECONNRESE
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/jacobellena/Downloads/image-file-list.py", line 81, in <module>
+  File "/Users/jacobellena/Downloads/image-file-list.py", line 63, in <module>
+    image_grab(image, flight, event_number)
+  File "/Users/jacobellena/Downloads/image-file-list.py", line 47, in image_grab
     image_grab = requests.get(image_url)
   File "/Users/jacobellena/opt/anaconda3/envs/dsi/lib/python3.7/site-packages/requests/api.py", line 75, in get
     return request('get', url, params=params, **kwargs)
