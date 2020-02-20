@@ -27,15 +27,15 @@ os.mkdir(os.path.abspath(Path.home()) + f'/Desktop/{event_number}/')
 
 # Assigning browser to be Firefox
 driver = webdriver.Firefox()
-# Long sleep time to account for slower loading times of browser
-time.sleep(5)
+# Sleep to allow for browser to load on slower systems
+time.sleep(3)
 
 # Setting base url
 base_url = (f'http://fema-cap-imagery.s3-website-us-east-1.amazonaws.com/Images/{event_number}/')
 
 # Collecting page data
 driver.get(base_url)
-time.sleep(10)
+time.sleep(5)
 
 # Pulling everything under the 'listing' element into a variable and converting to list
 flight_list = driver.find_element_by_id('listing').text.split()
@@ -62,7 +62,7 @@ def image_grab(image, flight, event_number):
     # Getting request status code
     status_code = image_grab_request.status_code
     # Generating file name for writing and log
-    file_name = f'{flight}_{image}'
+    file_name = f'{event_number}_{flight}_{image}'
     # Dataframe of current pull to append to scraper_log
     temp_scrape_log = pd.DataFrame(
         {

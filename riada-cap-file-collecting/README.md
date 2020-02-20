@@ -18,7 +18,15 @@ Site is built with javascript so Selenium was used in tandem with requests libra
 
 ### Requirements
 
-The following libraries are needed for the scraping tools to function:
+Current scripts are only compatible with macOS.
+
+The following are needed for scripts to operate correctly.
+
+Programs:
+- [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
+- [Mozilla Geckodriver](https://github.com/mozilla/geckodriver)
+
+Python Libraries:
 - [pandas](https://pandas.pydata.org/)
 - [selenium](https://pypi.org/project/selenium/)
 - [requests](https://requests.readthedocs.io/en/master/)
