@@ -8,13 +8,13 @@ In the aftermath of natural disasters, displaced persons can be forced from thei
 
 Our problem statement is:
 
-In the aftermath of natural disasters, how can we identify key areas of need? Can aerial imagery be used to identify informal shelters? 
+**In the aftermath of natural disasters, how can we identify key areas of need? Can aerial imagery be used to identify informal shelters?**
 
 It is important to note that based on the client’s needs, the scope of this project was changed. After asking the client some questions for clarification (through DSI Instructor Matt Brems), the client asked us to focus on Civil Air Patrol (CAP) imagery instead of satellite imagery, as CAP imagery is more readily available post-disaster. After discussing the change in scope with Matt Brems, it was identified that the Minimum Viable Product (MVP) would be a collection tool that could be run from the client's computer, access the CAP pictures, and download them locally. This proved to be a realistic MVP because unlike satellite imagery, CAP imagery is non-standard, with images taken from different cameras, altitudes, and angles, presenting a large pre-processing challenge for neural network modeling.
 
 The team was able to achieve the MVP, and attempted to learn and run a convolutional neural network. Given more time and resources, the team would want to answer the question:
 
-Can a Convolutional Neural Network be built that takes non-standard images from the CAP and classifies them based on the presence of tents?
+**Can a Convolutional Neural Network be built that takes non-standard images from the CAP and classifies them based on the presence of tents?**
 
 ## Table of Contents
 
@@ -28,7 +28,7 @@ Can a Convolutional Neural Network be built that takes non-standard images from 
 
 For the purposes of examining our product, please open the riada-cap-file-collecting folder, and examine its jupyter notebooks alongside its technical README.
 
-## A paragraph description of data that was used, plus data acquisition, ingestion, and cleaning steps
+## The Data
 
 Collecting data from the CAP site proved to be a challenge. While the backend looks like a simple html site, javascript is used to dynamically generate page info. The group had to learn and use Selenium webdriver to navigate to the necessary pages to download images with request library though this site:
 
@@ -61,9 +61,9 @@ The group tested the RIADA tool using CAP imagery from the January 2020 earthqua
 
 The group then prepared the data for a supervised model, identifying more than 400 images without a tent, and 200 with a tent.
 
-Example of a tent
+Example of an image with tents:![tent_example](images/tent_example.jpg)
 
-## A short description of software requirements required by analysis
+## Software Requirements
 
 RIADA runs on MacOS, and requires the following:
 
