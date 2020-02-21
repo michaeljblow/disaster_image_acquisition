@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[23]:
+# In[1]:
 
 
 import pandas as pd
@@ -13,13 +13,14 @@ event_number = event_number = input("Enter Event Number:\n ")
 
 # Assigning browser to be Firefox
 driver = webdriver.Firefox()
+# Sleep to allow for browser to load on slower systems
+time.sleep(3)
 
 # Setting base url
 base_url = 'http://fema-cap-imagery.s3-website-us-east-1.amazonaws.com/Images/'
 
-url = f'{base_url}{event_number}/'
 
-url
+url = f'{base_url}{event_number}/'
 
 # Collecting page data
 driver.get(url)
@@ -37,7 +38,7 @@ flight_list
 # Instantiating empty list to store all file size numbers
 file_sizes = []
 
-# Loop through each flight event and 
+# Loop through each flight event and append file size to file_sizes list
 for flight in flight_list:
     temp_url = f'{url}{flight}/'
     driver.get(temp_url)
@@ -49,7 +50,14 @@ for flight in flight_list:
 # Closing Firefox
 driver.close()
 
-print(f'Total image count : {len(file_sizes)}')
-print(f'Total file count  : {round((sum(file_sizes)/1000), 2)} GB')
-print(f'Largest File Size : {max(file_sizes)} MB')
+print(f'Total Number of Flights             : {len(flight_list)}')
+print(f'Total Image Count                   : {len(file_sizes)}')
+print(f'Largest File Size                   : {max(file_sizes)} MB')
+print(f'Approximate Total File Size         : {round((sum(file_sizes)), 2)} MB')
+
+
+# In[ ]:
+
+
+
 

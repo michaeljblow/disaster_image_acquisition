@@ -16,10 +16,10 @@ from pathlib import Path
 # Begining timer
 t0 = time.time()
 
-# Requesting user to enter FEMA "event number"
+# Requesting user to enter FEMA site "event number"
 event_number = input("Enter Event Number:\n ")
 
-# Requesting user to enter FEMA "event number"
+# Requesting user to enter FEMA site "flight number"
 flight_number = input("Enter Flight Number:\n ")
 
 # Requesting time to sleep between image grabs. Allows user to set larger in low bandwidth situations
@@ -33,15 +33,15 @@ os.mkdir(os.path.abspath(Path.home()) + f'/Desktop/{directory}/')
 
 # Assigning browser to be Firefox
 driver = webdriver.Firefox()
-# Long sleep time to account for slower loading times of browser
-time.sleep(5)
+# Sleep to allow for browser to load on slower systems
+time.sleep(3)
 
 # Setting base url
 base_url = (f'http://fema-cap-imagery.s3-website-us-east-1.amazonaws.com/Images/{event_number}/')
 
 # Collecting page data
 driver.get(base_url + flight_number + '/')
-time.sleep(10)
+time.sleep(5)
 
 # Creating dataframe to be used as log
 scrape_log = pd.DataFrame(columns=('Status Code', 'Time of Grab', 'File Name'))
@@ -62,7 +62,7 @@ def image_grab(image, flight, event):
     # Getting request status code
     status_code = image_grab_request.status_code
     # Generating file name for writing and log
-    file_name = f'{flight}_{image}'
+    file_name = f'{event}_{flight}_{image}'
     # Dataframe of current pull to append to scraper_log
     temp_scrape_log = pd.DataFrame(
         {
@@ -77,14 +77,12 @@ def image_grab(image, flight, event):
     # Writing image to disk
     open(os.path.expanduser(f'~/Desktop/{directory}/{file_name}'), 'wb').write(image_grab_request.content)
 
-# Iterate through list of flights
-#for flight in flight_list:
 
 # Calling list of all image file names
 temp_image_file_list = driver.find_element_by_id('listing').text.split()
 temp_image_file_list = [i for i in temp_image_file_list if '.jpg' in i]
-# Running through each file with a check for an error and to retry if server times out on image request
 
+# Running through each file with a check for an error and to retry if server times out on image request
 for image in temp_image_file_list:
     try:
         image_grab(image, flight_number, event_number)
