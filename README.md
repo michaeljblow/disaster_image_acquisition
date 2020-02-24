@@ -1,4 +1,11 @@
 # Team 2: Rapid Image Acquisition for Disaster Analysis - RIADA
+
+
+
+| Michael Blow | Jacob Ellena | Miguel Martin Menez |
+|:------------:|:------------:|:-------------------:|
+|[LinkedIn](https://www.linkedin.com/in/michaeljblow/)|[LinkedIn](https://www.linkedin.com/in/jellena/)|[LinkedIn](https://www.linkedin.com/in/miguelmenez/)|
+
 ## Prompt: Finding Tents and Other Emergency Housing Through Exploitation of Satellite Imagery (changed by client, see below)
 ## Client: New Light Technologies
 
