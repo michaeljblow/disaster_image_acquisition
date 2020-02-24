@@ -92,7 +92,7 @@ During the development of the tool, the team recognized that that the tool could
 
 Given more time and resources, the team recommends the following:
 
-> Adapt RIADA for Windows OS
-> Develop a convolutional neural network model that identifies which images have tents, and which do not (which includes pre-processing the images)
-> Create a Graphical User Interface (GUI) for RIADA
-> Add start/stop functionality into RIADA
+- Adapt RIADA for Windows OS<br>
+- Develop a convolutional neural network model that identifies which images have tents, and which do not (which includes pre-processing the images)<br>
+- Create a Graphical User Interface (GUI) for RIADA<br>
+- Add start/stop functionality into RIADA
